@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import style from './CreateBook.module.css'
 
 import Input from "../form/Input";
@@ -13,7 +14,10 @@ const CreateBook = ()=>{
 
     /* CRIA A ESTRUTURA DE STATE PARA OS DADOS DE CATEGORIA */
     const [categories, setCategories] = useState([]);
-
+    /**
+        * O useNavigate é um hook do React Router que permite navegar programaticamente entre as rotas da aplicação.
+     */
+    const navigate = useNavigate();
     //Captura de dados dos elementos de input
     function handlerChangeBook(event){
         setBook({...book, [event.target.name] : event.target.value});
@@ -68,7 +72,7 @@ const CreateBook = ()=>{
             resp.json()
         ).then((respJSON)=>{
             console.log('RESPOSTA: ' + respJSON);
-        
+            navigate('/listBook')
         }).catch((error)=>{
             console.log('ERRO: ' + error);
         })
