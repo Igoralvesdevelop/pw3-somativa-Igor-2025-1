@@ -50,7 +50,7 @@ const CreateBook = ()=>{
             resp.json()
         ).then((categorias)=>{
             console.log('TESTE: ' + categorias.data);
-            setCategories(categorias.data)
+           // setCategories(categorias.data)
         }).catch((error)=>{
             console.log('ERRO: ' + error);
         })
